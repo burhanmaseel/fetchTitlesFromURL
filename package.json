@@ -1,0 +1,11 @@
+{
+  "name": "careaxiom-task",
+  "version": "1.0.0",
+  "description": "Program to fetch titles from the given URL(s)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Burhan Maseel",
+  "license": "ISC"
+}
