@@ -4,8 +4,16 @@
   "description": "Program to fetch titles from the given URL(s)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "author": "Burhan Maseel",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
 }
