@@ -1,5 +1,3 @@
-var async = require("async");
-const { extractTitle } = require("../helpers/getTitleHelpers");
 const request = require("request");
 
 exports.getTitles = async (req, res) => {
@@ -11,14 +9,22 @@ exports.getTitles = async (req, res) => {
     address.map(url => {
       return new Promise((resolve, reject) => {
         request(url, (error, response, body) => {
-          let title = body
-            .split("<title>")
-            .pop()
-            .split("</title>")[0];
-          resolve(title);
+          if (error) {
+            let title = url + " - NO RESPONSE"; 
+            resolve(title);
+          } else {
+            let title = url + " - " + body
+              .split("<title>")
+              .pop()
+              .split("</title>")[0];
+            resolve(title);
+          }
         });
       });
     })
   );
-  console.log(titles);
+
+  res.status(200).render('index' , {
+    titles : titles
+  });
 };
